@@ -6,6 +6,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { IOrder, OrderStatus } from "@/types/order";
+import Image from "next/image";
 
 interface ViewOrderModalProps {
   order: IOrder | null;
@@ -65,10 +66,13 @@ const ViewOrderModal: React.FC<ViewOrderModalProps> = ({
               key={index}
               className="flex gap-4 items-center border p-3 rounded-md"
             >
-              <img
+              <Image
                 src={item.fruit.image}
                 alt={item.fruit.name}
+                width={200}
+                height={200}
                 className="w-20 h-20 object-cover rounded-md"
+                priority
               />
               <div className="flex-1">
                 <p className="font-semibold text-lg">{item.fruit.name}</p>

@@ -29,8 +29,11 @@ const Banner = () => {
         modules={[Pagination, Autoplay]}
         className="w-full h-[400px] lg:h-[500px]"
       >
-        {bannerImages.map((img) => (
-          <SwiperSlide className="h-[400px] lg:h-[500px] rounded-lg shadow-2xl">
+        {bannerImages.map((img, i) => (
+          <SwiperSlide
+            key={i}
+            className="h-[400px] lg:h-[500px] rounded-lg shadow-2xl"
+          >
             <div className="relative w-full h-full">
               <Image
                 src={img}

@@ -22,10 +22,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { uploadToCloudinary } from "@/helper/uploadToCloudinary";
 import { useGetAllFruitCategoryQuery } from "@/redux/features/fruitCategory/fruitCategoryApi";
-import {
-  useAddFruitMutation,
-  useUpdateFruitMutation,
-} from "@/redux/features/fruits/fruitsApi";
+import { useUpdateFruitMutation } from "@/redux/features/fruits/fruitsApi";
 import { IFruitCategory } from "@/types/fruit-category";
 import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -69,6 +66,20 @@ const UpdateFruitModal: React.FC<AddFruitModalProps> = ({
   isOpen,
   onOpenChange,
 }) => {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      name: "",
+      category: "",
+      regular_price: 0,
+      offer_price: 0,
+      inStock: true,
+      unit: "kg",
+      quantity: 0,
+      description: "",
+    },
+  });
+
   useEffect(() => {
     if (fruit && isOpen) {
       form.reset({
@@ -85,28 +96,14 @@ const UpdateFruitModal: React.FC<AddFruitModalProps> = ({
       // Optional: set existing image preview
       setImagePreview(fruit.image ? [fruit.image] : []);
     }
-  }, [fruit, isOpen]);
+  }, [fruit, isOpen, form]);
 
   const [imageUploading, setImageUploading] = useState<boolean>(false);
   const [imageFiles, setImageFiles] = useState<File[] | []>([]);
   const [imagePreview, setImagePreview] = useState<string[] | []>([]);
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
-    defaultValues: {
-      name: "",
-      category: "",
-      regular_price: 0,
-      offer_price: 0,
-      inStock: true,
-      unit: "kg",
-      quantity: 0,
-      description: "",
-    },
-  });
 
   const [updateFruit, { isLoading }] = useUpdateFruitMutation();
-  const { data, isLoading: fetchingCategories } =
-    useGetAllFruitCategoryQuery(undefined);
+  const { data } = useGetAllFruitCategoryQuery(undefined);
   const fruitCategories: IFruitCategory[] = data?.data || [];
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {

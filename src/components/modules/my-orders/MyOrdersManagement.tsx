@@ -7,6 +7,7 @@ import { IMeta } from "@/types/meta";
 import DataTablePagination from "@/components/ui/core/DataTable/DataTablePagination";
 import { format } from "date-fns";
 import OrderListSkeleton from "@/components/ui/core/Loader/OrderListSkeleton";
+import Image from "next/image";
 
 const MyOrdersManagement = () => {
   const searchParams = useSearchParams();
@@ -59,10 +60,13 @@ const MyOrdersManagement = () => {
                   key={idx}
                   className="flex items-center gap-3 border rounded-md p-2"
                 >
-                  <img
+                  <Image
+                    width={200}
+                    height={200}
                     src={item.fruit.image}
                     alt={item.fruit.name}
                     className="w-16 h-16 object-cover rounded"
+                    priority
                   />
                   <div>
                     <p className="font-semibold">{item.fruit.name}</p>

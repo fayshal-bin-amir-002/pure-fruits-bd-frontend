@@ -36,8 +36,8 @@ const NavBar = () => {
               <Image
                 src={logo}
                 alt="logo"
-                priority
                 className="w-16 md:w-20 lg:w-24"
+                priority
               />
             </Link>
           </h3>

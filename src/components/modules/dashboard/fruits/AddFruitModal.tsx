@@ -82,8 +82,7 @@ const AddFruitModal: React.FC<AddFruitModalProps> = ({
   });
 
   const [addFruit, { isLoading }] = useAddFruitMutation();
-  const { data, isLoading: fetchingCategories } =
-    useGetAllFruitCategoryQuery(undefined);
+  const { data } = useGetAllFruitCategoryQuery(undefined);
   const fruitCategories: IFruitCategory[] = data?.data || [];
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {

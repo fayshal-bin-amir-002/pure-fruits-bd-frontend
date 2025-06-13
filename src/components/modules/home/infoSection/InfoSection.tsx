@@ -20,6 +20,7 @@ export function InfoSection() {
           src={img}
           alt="Pure Fruits BD Info"
           className="rounded-xl shadow-lg w-full object-cover"
+          priority
         />
       </div>
 

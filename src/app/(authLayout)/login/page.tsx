@@ -4,10 +4,11 @@ import { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Pure Fruits bd.com | Log In",
+  title: "Pure Fruits BD | Log in",
   description:
-    "Buy the freshest, hand-picked fruits online in Bangladesh. Pure Fruits BD offers top-quality seasonal and imported fruits at the best prices with home delivery.",
+    "Buy the freshest, hand-picked fruits online in Bangladesh with Pure Fruits BD. আমরা দিচ্ছি সেরা মৌসুমি ও বিদেশি ফল সুলভ দামে, ঘরে বসেই অর্ডার করুন এখনই।",
   keywords: [
+    // English Keywords
     "fresh fruits",
     "buy fruits online",
     "fruit delivery Bangladesh",
@@ -17,6 +18,23 @@ export const metadata: Metadata = {
     "mango delivery",
     "apple banana orange",
     "best fruit shop online BD",
+    "online fruit shop",
+    "fruit home delivery",
+    "fresh mango BD",
+    "exotic fruits Bangladesh",
+
+    // Bangla Keywords
+    "তাজা ফল",
+    "অনলাইনে ফল কিনুন",
+    "বাংলাদেশে ফল হোম ডেলিভারি",
+    "ফলের দোকান অনলাইন",
+    "আমের হোম ডেলিভারি",
+    "সিজনাল ফল",
+    "ফল কিনুন",
+    "সস্তায় ফল",
+    "সেরা ফলের দোকান",
+    "পিওর ফ্রুটস বিডি",
+    "আম কল কমলা আপেল",
   ],
 };
 

@@ -28,8 +28,8 @@ import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { verifyToken } from "@/helper/verifyToken";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { selectCurrentUser, setUser } from "@/redux/features/auth/authSlice";
+import { useAppDispatch } from "@/redux/hooks";
+import { setUser } from "@/redux/features/auth/authSlice";
 import { setCookies } from "@/services/auth";
 
 const FormSchema = z.object({
@@ -61,7 +61,6 @@ const LoginConponent = () => {
       const res = await login(data).unwrap();
       if (res?.success) {
         await setCookies(res.data.accessToken);
-        // (await cookies()).set("accessToken", res.data.accessToken);
         const user = verifyToken(res.data.accessToken);
         dispatch(setUser({ token: res.data.accessToken, user: user }));
         toast.success(res?.message);
@@ -87,6 +86,7 @@ const LoginConponent = () => {
           width={400}
           height={400}
           className="w-[200px] mx-auto mb-4"
+          priority
         />
         <div className="text-center">
           <CardTitle>Welcome Back!</CardTitle>

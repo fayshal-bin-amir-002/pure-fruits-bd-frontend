@@ -16,6 +16,7 @@ import { usePlaceOrderMutation } from "@/redux/features/orders/ordersApi";
 import ButtonSpinner from "@/components/ui/core/Loader/ButtonSpinner";
 import { toast } from "sonner";
 import Swal from "sweetalert2";
+import Image from "next/image";
 
 const OrderManagement = () => {
   const dispatch = useAppDispatch();
@@ -138,10 +139,13 @@ const OrderManagement = () => {
             key={item.fruit._id}
             className="flex gap-4 items-start border p-4 rounded-lg shadow-sm bg-white"
           >
-            <img
+            <Image
+              width={200}
+              height={200}
               src={item.fruit.image}
               alt={item.fruit.name}
               className="w-20 h-20 rounded object-cover"
+              priority
             />
             <div className="flex-1 space-y-1">
               <div className="flex justify-between items-start">

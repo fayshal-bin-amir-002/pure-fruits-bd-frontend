@@ -24,6 +24,7 @@ import {
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { addMultipleToOrder } from "@/redux/features/orders/ordersSlice";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const FloatingCartButton = () => {
   const [shake, setShake] = useState(false);
@@ -86,12 +87,15 @@ const FloatingCartButton = () => {
             {items.map((item) => (
               <div
                 key={item.fruit._id}
-                className="flex gap-4 items-start border p-3 rounded-lg shadow-sm"
+                className="flex gap-4 items-center border p-3 rounded-lg shadow-sm"
               >
-                <img
+                <Image
                   src={item.fruit.image}
                   alt={item.fruit.name}
+                  width={200}
+                  height={200}
                   className="w-16 h-16 rounded object-cover"
+                  priority
                 />
                 <div className="flex-1 space-y-1">
                   <div className="flex justify-between items-start">

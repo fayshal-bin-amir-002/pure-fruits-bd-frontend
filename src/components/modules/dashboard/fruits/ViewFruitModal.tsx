@@ -39,6 +39,7 @@ const ViewFruitModal: React.FC<ViewFruitModalProps> = ({
                 alt={fruit?.name as string}
                 fill
                 className="object-cover"
+                priority
               />
             </div>
 

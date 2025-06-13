@@ -28,8 +28,6 @@ import Link from "next/link";
 import { useRegisterMutation } from "@/redux/features/user/userApi";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useAppSelector } from "@/redux/hooks";
-import { selectCurrentUser } from "@/redux/features/auth/authSlice";
 
 const FormSchema = z.object({
   phone_number: z
@@ -77,6 +75,7 @@ const RegisterComponent = () => {
           width={400}
           height={400}
           className="w-[200px] mx-auto mb-4"
+          priority
         />
         <div className="text-center">
           <CardTitle>Hey there!</CardTitle>

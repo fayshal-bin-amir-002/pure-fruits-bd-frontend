@@ -1,21 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { FruitCardSkeleton } from "@/components/ui/core/Loader/FruitCardSkeleton";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+
 import { useGetAllFruitQuery } from "@/redux/features/fruits/fruitsApi";
 import { IFruit } from "@/types/fruit/fruit";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useForm } from "react-hook-form";
+import { useSearchParams } from "next/navigation";
 import FruitCard from "../home/fruit-section/FruitCard";
-import Link from "next/link";
 import { IMeta } from "@/types/meta";
 import DataTablePagination from "@/components/ui/core/DataTable/DataTablePagination";
 import CategoryCards from "../home/fruit-section/CategoryCards";

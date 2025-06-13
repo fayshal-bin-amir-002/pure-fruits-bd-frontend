@@ -2,14 +2,7 @@
 
 import { DataTable } from "@/components/ui/core/DataTable";
 import TableSkeleton from "@/components/ui/core/Loader/TableSkeleton";
-import { UserRole, UserStatus } from "@/redux/features/auth/authSlice";
-import {
-  useGetAllUserQuery,
-  useRoleChangeMutation,
-  useStatusChangeMutation,
-} from "@/redux/features/user/userApi";
 import { IMeta } from "@/types/meta";
-import { IUser } from "@/types/user";
 import { ColumnDef } from "@tanstack/react-table";
 import {
   Select,
@@ -24,10 +17,8 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";

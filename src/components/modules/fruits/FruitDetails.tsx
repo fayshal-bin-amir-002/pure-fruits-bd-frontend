@@ -39,6 +39,7 @@ const FruitDetails = ({ id }: { id: string }) => {
           alt={fruit.name}
           fill
           className="object-cover rounded-lg"
+          priority
         />
       </div>
 

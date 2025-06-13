@@ -5,13 +5,10 @@ import ImageUploader from "@/components/ui/core/ImageUpload/ImageUploader";
 import ButtonSpinner from "@/components/ui/core/Loader/ButtonSpinner";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import {
   Form,
@@ -21,11 +18,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { uploadToCloudinary } from "@/helper/uploadToCloudinary";
 import { useAddFruitCategoryMutation } from "@/redux/features/fruitCategory/fruitCategoryApi";
-import { IFruitCategory } from "@/types/fruit-category";
-import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";

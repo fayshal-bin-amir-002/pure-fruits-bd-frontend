@@ -30,7 +30,7 @@ const baseQueryWithRefeshToken: BaseQueryFn<
   BaseQueryApi,
   DefinitionType
 > = async (args, api, extraOptions): Promise<any> => {
-  let result = await baseQuery(args, api, extraOptions);
+  const result = await baseQuery(args, api, extraOptions);
 
   if (result.error?.status === 401 || result.error?.status === 403) {
     await Logout();

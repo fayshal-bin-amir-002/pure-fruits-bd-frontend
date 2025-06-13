@@ -1,8 +1,42 @@
-"use client";
-
 import Image from "next/image";
 import img1 from "../../../assets/banner/banner_image_3.jpg";
 import img2 from "../../../assets/banner/banner_image_4.jpg";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pure Fruits BD | About Us",
+  description:
+    "Buy the freshest, hand-picked fruits online in Bangladesh with Pure Fruits BD. আমরা দিচ্ছি সেরা মৌসুমি ও বিদেশি ফল সুলভ দামে, ঘরে বসেই অর্ডার করুন এখনই।",
+  keywords: [
+    // English Keywords
+    "fresh fruits",
+    "buy fruits online",
+    "fruit delivery Bangladesh",
+    "seasonal fruits BD",
+    "pure fruits bd",
+    "organic fruits",
+    "mango delivery",
+    "apple banana orange",
+    "best fruit shop online BD",
+    "online fruit shop",
+    "fruit home delivery",
+    "fresh mango BD",
+    "exotic fruits Bangladesh",
+
+    // Bangla Keywords
+    "তাজা ফল",
+    "অনলাইনে ফল কিনুন",
+    "বাংলাদেশে ফল হোম ডেলিভারি",
+    "ফলের দোকান অনলাইন",
+    "আমের হোম ডেলিভারি",
+    "সিজনাল ফল",
+    "ফল কিনুন",
+    "সস্তায় ফল",
+    "সেরা ফলের দোকান",
+    "পিওর ফ্রুটস বিডি",
+    "আম কল কমলা আপেল",
+  ],
+};
 
 const reviews = [
   {
@@ -36,6 +70,7 @@ const AboutUs = () => {
           width={600}
           height={400}
           className="rounded-2xl shadow-xl"
+          priority
         />
         <div>
           <h1 className="text-4xl font-bold text-green-600 mb-4">
@@ -68,6 +103,7 @@ const AboutUs = () => {
           width={600}
           height={400}
           className="rounded-2xl shadow-xl"
+          priority
         />
       </div>
 
@@ -89,6 +125,7 @@ const AboutUs = () => {
                   width={50}
                   height={50}
                   className="rounded-full border-2 border-green-500"
+                  priority
                 />
                 <h4 className="text-md font-semibold text-gray-800">
                   {review.name}

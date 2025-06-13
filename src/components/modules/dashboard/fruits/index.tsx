@@ -16,7 +16,6 @@ import {
   useDeleteFruitMutation,
   useGetAllFruitQuery,
 } from "@/redux/features/fruits/fruitsApi";
-import { IFruitCategory } from "@/types/fruit-category";
 import { IFruit } from "@/types/fruit/fruit";
 import { IMeta } from "@/types/meta";
 import { ColumnDef } from "@tanstack/react-table";

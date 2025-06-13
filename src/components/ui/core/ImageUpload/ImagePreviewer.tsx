@@ -34,6 +34,7 @@ const ImagePreviewer = ({
             src={preview}
             alt={`Preview ${index + 1}`}
             className="object-cover w-full h-full"
+            priority
           />
           <Button
             type="button"
