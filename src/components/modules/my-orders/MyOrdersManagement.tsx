@@ -3,7 +3,7 @@
 import { useSearchParams, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useGetMyOrderQuery } from "@/redux/features/orders/ordersApi";
-import { IOrder } from "@/types/order";
+import { IOrder, OrderStatus } from "@/types/order";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import LoadingSpinner from "@/components/ui/core/Loader/LoadingSpinner";
@@ -20,9 +20,12 @@ const TrackOrderPage = () => {
   const [orderId, setOrderId] = useState(orderIdParam);
   const [submittedId, setSubmittedId] = useState(orderIdParam);
 
-  const { data, isLoading, refetch } = useGetMyOrderQuery(submittedId, {
-    skip: !submittedId,
-  });
+  const { data, isLoading, refetch, isFetching } = useGetMyOrderQuery(
+    submittedId,
+    {
+      skip: !submittedId,
+    }
+  );
 
   const order: IOrder | undefined = data?.data || undefined;
 
@@ -33,11 +36,17 @@ const TrackOrderPage = () => {
     }
   };
 
+  const statusStyles: Record<OrderStatus, string> = {
+    [OrderStatus.PENDING]: "bg-yellow-100 text-yellow-700",
+    [OrderStatus.COMPLETE]: "bg-green-100 text-green-700",
+    [OrderStatus.CANCELED]: "bg-red-100 text-red-700",
+  };
+
   useEffect(() => {
     if (submittedId) {
       refetch();
     }
-  }, [submittedId]);
+  }, [submittedId, refetch]);
 
   return (
     <div className="max-w-2xl mx-auto py-8 space-y-6">
@@ -55,11 +64,11 @@ const TrackOrderPage = () => {
         </Button>
       </div>
 
-      {isLoading && <LoadingSpinner />}
+      {(isLoading || isFetching) && <LoadingSpinner />}
 
-      {!isLoading && order && (
+      {!isLoading && !isFetching && order && (
         <div className="border p-4 rounded-lg shadow-md space-y-4 bg-white">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col md:flex-row gap-2 md:items-center justify-between">
             <div>
               <h2 className="text-lg font-semibold">Order ID: {order._id}</h2>
               <p className="text-sm text-gray-500">
@@ -67,13 +76,17 @@ const TrackOrderPage = () => {
               </p>
             </div>
             <div>
-              <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full">
+              <span
+                className={`px-3 py-1 text-sm font-medium rounded-full ${
+                  statusStyles[order.status as OrderStatus]
+                }`}
+              >
                 {order.status}
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 pt-2">
             <Button
               variant="outline"
               className="cursor-pointer"
@@ -93,14 +106,14 @@ const TrackOrderPage = () => {
         </div>
       )}
 
-      {!isLoading && submittedId && !order && (
+      {!isLoading && !isFetching && submittedId && !order && (
         <p className="text-center text-red-500 font-medium mt-20 text-2xl">
           Order not found
         </p>
       )}
       <ViewMyOrder order={order} onOpenChange={setOpenView} isOpen={openView} />
 
-      {!isLoading && order && (
+      {!isLoading && !isFetching && order && (
         <div
           className="bg-white text-gray-900 rounded-lg p-4 shadow-md mx-auto font-sans"
           id="pdf-container"
