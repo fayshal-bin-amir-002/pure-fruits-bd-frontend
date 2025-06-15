@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Pure Fruits BD | My Orders",
+  title: "Pure Fruits BD | Track Order",
   description:
     "Buy the freshest, hand-picked fruits online in Bangladesh with Pure Fruits BD. আমরা দিচ্ছি সেরা মৌসুমি ও বিদেশি ফল সুলভ দামে, ঘরে বসেই অর্ডার করুন এখনই।",
   keywords: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   ],
 };
 
-const MyOrdersPage = () => {
+const TrackOrderPage = () => {
   return (
     <div className="my-4 md:my-6">
       <Suspense fallback={<LoadingSpinner />}>
@@ -48,4 +48,4 @@ const MyOrdersPage = () => {
   );
 };
 
-export default MyOrdersPage;
+export default TrackOrderPage;

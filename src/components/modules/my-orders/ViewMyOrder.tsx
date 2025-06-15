@@ -8,13 +8,13 @@ import {
 import { IOrder, OrderStatus } from "@/types/order";
 import Image from "next/image";
 
-interface ViewOrderModalProps {
-  order: IOrder | null;
+interface ViewMyOrderProps {
+  order: IOrder | undefined;
   isOpen: boolean;
   onOpenChange: (isOpen: boolean) => void;
 }
 
-const ViewOrderModal: React.FC<ViewOrderModalProps> = ({
+const ViewMyOrder: React.FC<ViewMyOrderProps> = ({
   order,
   isOpen,
   onOpenChange,
@@ -24,15 +24,16 @@ const ViewOrderModal: React.FC<ViewOrderModalProps> = ({
       <DialogContent className="max-h-[80%] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Order Details</DialogTitle>
-          <DialogDescription>
-            Review the order and customer information
-          </DialogDescription>
+          <DialogDescription></DialogDescription>
         </DialogHeader>
 
         {/* Customer Info */}
         <div className="space-y-1 border-b pb-4 mb-4">
           <p>
-            <span className="font-semibold">Customer:</span> {order?.name}
+            <span className="font-semibold">Order Id:</span> {order?._id}
+          </p>
+          <p>
+            <span className="font-semibold">Name:</span> {order?.name}
           </p>
           <p>
             <span className="font-semibold">Phone:</span>{" "}
@@ -113,4 +114,4 @@ const ViewOrderModal: React.FC<ViewOrderModalProps> = ({
   );
 };
 
-export default ViewOrderModal;
+export default ViewMyOrder;

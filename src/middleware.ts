@@ -7,7 +7,7 @@ const authRoutes = ["/login", "/register"];
 
 const roleBasedPrivateRoutes = {
   ADMIN: [/^\/dashboard/],
-  USER: [/^\/my-orders/, /^\/order/],
+  USER: [/^\/my-orders/],
 };
 
 export const middleware = async (request: NextRequest) => {
@@ -40,7 +40,6 @@ export const config = {
     "/login",
     "/register",
     "/my-orders",
-    "/order",
     "/dashboard",
     "/dashboard/:path*",
   ],

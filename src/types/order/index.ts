@@ -1,5 +1,4 @@
 import { IFruit } from "../fruit/fruit";
-import { IUser } from "../user";
 
 export interface IOrderFruitItem {
   fruit: IFruit;
@@ -14,7 +13,6 @@ export enum OrderStatus {
 
 export interface IOrder {
   _id: string;
-  customer: IUser;
   name: string;
   address: string;
   contact_number: string;

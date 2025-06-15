@@ -27,18 +27,10 @@ const ordersApi = baseApi.injectEndpoints({
       },
       providesTags: ["Order"],
     }),
-    getMyOrders: builder.query({
-      query: (params) => {
-        if (!params || Object.keys(params).length === 0) {
-          return {
-            url: "/order/my-orders",
-            method: "GET",
-          };
-        }
-
-        const queryString = new URLSearchParams(params).toString();
+    getMyOrder: builder.query({
+      query: (id: string) => {
         return {
-          url: `/order/my-orders?${queryString}`,
+          url: `/order/my-order/${id}`,
           method: "GET",
         };
       },
@@ -58,6 +50,6 @@ const ordersApi = baseApi.injectEndpoints({
 export const {
   usePlaceOrderMutation,
   useGetAllOrderQuery,
-  useGetMyOrdersQuery,
+  useGetMyOrderQuery,
   useUpdateStatusMutation,
 } = ordersApi;

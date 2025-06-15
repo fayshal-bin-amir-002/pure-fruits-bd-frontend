@@ -16,7 +16,7 @@ export const navLinks = [
     url: "/contact",
   },
   {
-    title: "My Orders",
-    url: "/my-orders",
+    title: "Track Order",
+    url: "/track-order",
   },
 ];

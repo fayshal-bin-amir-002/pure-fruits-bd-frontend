@@ -149,3 +149,12 @@
     }
   }
 }
+
+/* #pdf-container,
+#pdf-container * {
+  color: black !important;
+  background-color: white !important;
+  background: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+} */

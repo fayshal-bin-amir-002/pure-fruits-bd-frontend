@@ -59,7 +59,7 @@ const OrderManagement = () => {
           icon: "success",
         });
         dispatch(clearOrder());
-        router.push("/my-orders");
+        router.push(`/track-order?id=${res?.data?._id}`);
       } else {
         toast.error(res?.message || "Something went wrong!");
       }
