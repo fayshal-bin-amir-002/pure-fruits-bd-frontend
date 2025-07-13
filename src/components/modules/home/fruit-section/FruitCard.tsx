@@ -30,7 +30,7 @@ const FruitCard = ({ fruit }: { fruit: IFruit }) => {
             alt={fruit?.name}
             width={400}
             height={400}
-            className="w-full h-full rounded-lg hover:scale-105 duration-300 overflow-hidden"
+            className="w-full h-[300px] object-cover rounded-lg hover:scale-105 duration-300 overflow-hidden"
             priority
           />
         </Link>
