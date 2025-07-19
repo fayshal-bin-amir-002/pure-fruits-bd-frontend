@@ -24,7 +24,7 @@ export const getCurrentUser = async () => {
 };
 
 export const getCurrentToken = async () => {
-  const accessToken = (await cookies()).get("accessToken")?.value;
+  const accessToken = (await cookies())?.get("accessToken")?.value;
   if (accessToken) return accessToken;
   else return null;
 };
