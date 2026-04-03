@@ -1,7 +1,7 @@
 "use server";
 
 export const uploadToCloudinary = async (
-  file: File
+  file: File,
 ): Promise<string | null> => {
   if (!file) return null;
 
@@ -10,11 +10,11 @@ export const uploadToCloudinary = async (
   formData.append("upload_preset", "ImageUpload");
 
   const response = await fetch(
-    `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
+    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload`,
     {
       method: "POST",
       body: formData,
-    }
+    },
   );
 
   const data = await response.json();
